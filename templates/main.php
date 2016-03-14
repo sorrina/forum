@@ -15,7 +15,11 @@
            <div class="nav-wrapper container">
              <a href="?page=home" class="brand-logo">Forum</a>
              <ul id="nav-mobile" class="right">
-               <li><a href="?page=login">Login</a></li>
+                 <?php if(is_eingeloggt()): ?>
+                    <li><a href="?logout">Logout</a></li>
+                 <?php else: ?>
+                     <li><a href="?page=login">Login</a></li>
+                <?php endif; ?>
              </ul>
            </div>
          </nav>

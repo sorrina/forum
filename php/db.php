@@ -10,4 +10,6 @@ $database = new medoo([
 	'password' => '',
 	'charset' => 'utf8'
 ]);
+
+global $database;
 ?>
