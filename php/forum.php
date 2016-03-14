@@ -21,3 +21,15 @@ function getPosts($threadid = null){
     }
     return $GLOBALS["database"]->select("post", "*", $where);
 }
+
+function createPost($inhalt){
+    $threadID = @$_GET["thread"];
+    $autor = @$_SESSION["user"];
+    $datum = date("Y-m-d H:i:s");
+    return $GLOBALS["database"]->insert("post", array("threadid" => $threadID, "autor" => $autor, "inhalt" => $inhalt, "datum" => $datum));
+}
+
+
+if(isset($_POST["submit_post"])){
+    createPost($_POST["post"]);
+}

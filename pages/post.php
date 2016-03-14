@@ -14,5 +14,7 @@
 
 
 <form class="" action="" method="post">
-    
+    <textarea name="post">
+    </textarea>
+    <input type="submit" name="submit_post">
 </form>
