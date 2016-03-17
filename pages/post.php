@@ -6,6 +6,7 @@
         <div class="card-content white-text">
           <span class="card-title">AUTOR</span>
           <p><?= $post["inhalt"] ?></p>
+          <a href="?<?=$_SERVER["QUERY_STRING"]?>&delete=<?=$post['idpost']?>">löschen</a>
         </div>
       </div>
  <?php endforeach; ?>

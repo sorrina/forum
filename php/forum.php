@@ -19,7 +19,7 @@ function getPosts($threadid = null){
         // Threads eines Forums
         $where["threadid"] = $threadid;   // array("ORDER" => "datum", "forenid" => $forumID)
     }
-    return $GLOBALS["database"]->select("post", "*", $where);
+    return $GLOBALS["database"]->select("post", array("[>]user" => ["autor" => "iduser"]), "*", $where);
 }
 
 function createPost($inhalt){
@@ -32,4 +32,13 @@ function createPost($inhalt){
 
 if(isset($_POST["submit_post"])){
     createPost($_POST["post"]);
+}
+
+function deletePost($id){
+    $GLOBALS["database"]->delete("post", array("idpost" => $id));
+}
+
+
+if(isset($_GET["delete"]) and $_GET["page"] == "post"){
+    deletePost($_GET["delete"]);
 }
