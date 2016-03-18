@@ -14,9 +14,31 @@ if(isset($_GET["enterledigt"])){
 }
 
 if(isset($_GET["delete"])){
-
     $GLOBALS["database"] ->delete('todo', array('id' => $_GET["delete"]));
 }
+
+
+
+
+
+
+if(isset($_GET["edit"])){
+    if(isset($_POST["submit-edit"])){
+        $GLOBALS["database"] -> update('todo', array('text' => $_POST["text"]), array("id" => $_GET["edit"]));
+    }
+    $inhalt_textarea = $GLOBALS["database"] -> get('todo', array('text'), array('id' => $_GET["edit"]));
+    echo"<form method='post' action=''>";
+    echo"<textarea name='text'>".$inhalt_textarea['text']."</textarea>";
+    echo"<input type='submit' name='submit-edit' value='speichern'>";
+    echo "</form>";
+
+
+}
+
+
+
+
+
 
 
 
@@ -42,6 +64,7 @@ foreach($datas as $data){
         echo '<a href="?page=todo&enterledigt='.$data["id"].'"><i class="material-icons green-text">done</i></a>';
     }
     echo '<a href="?page=todo&delete='.$data["id"].'">löschen</a>';
+    echo ' <a href="?page=todo&edit='.$data["id"].'">bearbeiten</a>';
     echo '<br/>';
 }
 echo "<a href='?page=todo&new'>neu</a>";
