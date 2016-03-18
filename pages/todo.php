@@ -14,7 +14,7 @@ if(isset($_GET["enterledigt"])){
 }
 
 if(isset($_GET["delete"])){
-    echo'test';
+
     $GLOBALS["database"] ->delete('todo', array('id' => $_GET["delete"]));
 }
 
@@ -41,7 +41,7 @@ foreach($datas as $data){
     else{
         echo '<a href="?page=todo&enterledigt='.$data["id"].'"><i class="material-icons green-text">done</i></a>';
     }
-    echo '<a href="?page=todo&delete">löschen</a>';
+    echo '<a href="?page=todo&delete='.$data["id"].'">löschen</a>';
     echo '<br/>';
 }
 echo "<a href='?page=todo&new'>neu</a>";
