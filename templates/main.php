@@ -43,6 +43,7 @@
                 <h5 class="white-text">Links</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="?page=home">Home</a></li>
+                  <li><a class="grey-text text-lighten-3" href="?page=todo">todo</a></li>
                 </ul>
               </div>
             </div>
